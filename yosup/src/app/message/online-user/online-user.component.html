@@ -1,0 +1,3 @@
+<div class="online-user">
+    <i class="fa" [ngClass]="{'fa-user': self, 'fa-users': !self}"></i> {{username}} <span *ngIf="self">(You)</span>
+</div>

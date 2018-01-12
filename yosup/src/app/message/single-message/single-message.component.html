@@ -1,0 +1,13 @@
+<div class="message">
+    <div class="bubble" [ngClass]="{'message-out': self, 'message-in': !self}" *ngIf="option">
+        <div class="sender" *ngIf="!self">
+            {{option.sender}}
+        </div>
+        <div class="text">
+            {{option.text}}
+        </div>
+        <div class="time">
+            {{option.date | date:'shortTime' }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="panel">
+    <div class="user-panel">
+        <div class="title">Online Users</div>
+        <app-online-user *ngFor="let onlineUser of onlineUser$ | async" [username]="onlineUser.displayName" [self]="onlineUser.displayName === user?.displayName"></app-online-user>
+    </div>
+    <div class="inner-panel">
+        <div class="message-panel" #messagePanel [scrollTop]="messagePanel.scrollHeight">
+            <app-single-message *ngFor="let option of messages$ | async" [option]="option" [self]="option.sender === user?.displayName"></app-single-message>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Type a message" [(ngModel)]="message" (keyup.enter)="sendMessage()">
+            <i (click)="sendMessage()" matSuffix class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+        </mat-form-field>
+    </div>
+
+
+</div>
